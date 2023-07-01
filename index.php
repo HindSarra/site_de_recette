@@ -1,6 +1,7 @@
 <?php
 require_once('lib/recipe.php');
 require_once('template/header.php');
+$recipes = getRecipes($pdo, _HOME_RECIPES_LIMIT_);
 ?>
 
 
@@ -29,10 +30,8 @@ require_once('template/header.php');
   }
   ?>
 </div>
-</div>
-<!-- fin container -->
-</div>
-<!-- mon footer  -->
+
+
 <?php
 require_once('template/footer.php');
 ?>
