@@ -1,4 +1,10 @@
 <?php
-$dbname = getenv('DB_NAME');
-$host = getenv('DB_HOST');
-$pdo = new PDO('mysql:dbname=$dbname;host=$host;charset=utf8mb4', getenv('DB_USER'), getenv('DB_PASSWORD'));
+
+$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbPort = getenv('DB_PORT') ?: '3306';
+$dbName = getenv('DB_NAME') ?: 'mydb';
+$dbUser = getenv('DB_USER') ?: 'myuser';
+$dbPassword = getenv('DB_PASSWORD') ?: 'mypwd';
+
+
+$pdo = new PDO('mysql:dbname=$dbName;port=$dbPort;host=$dbHost;charset=utf8mb4', '$dbUser', '$dbPassword');
