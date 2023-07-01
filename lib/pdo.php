@@ -1,2 +1,4 @@
 <?php
-$pdo = new PDO('mysql:dbname=studi_cuisinea;host=localhost;charset=utf8mb4', 'root', '');
+$dbname = getenv('DB_NAME');
+$host = getenv('DB_HOST');
+$pdo = new PDO('mysql:dbname=$dbname;host=$host;charset=utf8mb4', getenv('DB_USER'), getenv('DB_PASSWORD'));
