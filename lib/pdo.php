@@ -1,10 +1,11 @@
 <?php
+$dbhost = getenv('DB_HOST') ?: '127.0.0.1';
+$dbport = getenv('DB_PORT') ?: '3306';
+$dbname = getenv('DB_NAME') ?: 'test';
 
-$dbHost = getenv('DB_HOST') ?: 'localhost';
-$dbPort = getenv('DB_PORT') ?: '3306';
-$dbName = getenv('DB_NAME') ?: 'mydb';
-$dbUser = getenv('DB_USER') ?: 'myuser';
-$dbPassword = getenv('DB_PASSWORD') ?: 'mypwd';
+$dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname}";
+$username = getenv('DB_USERNAME') ?: 'test';
+$password = getenv('DB_PASSWORD') ?: 'test';
 
-
-$pdo = new PDO('mysql:dbname=$dbName;port=$dbPort;host=$dbHost;charset=utf8mb4', '$dbUser', '$dbPassword');
+$pdo = new PDO($dsn, $username, $password);
+?>
